@@ -3,13 +3,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 function GlobalLayout() {
-  return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
-  )
+	return (
+		<div>
+			<Header />
+			<Outlet />
+			<Footer />
+		</div>
+	);
 }
 
-export default GlobalLayout
+export default GlobalLayout;

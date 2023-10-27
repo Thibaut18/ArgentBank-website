@@ -1,0 +1,16 @@
+.sign-in-section {
+	position: relative;
+	flex: 1;
+	background-color: #12002b;
+	min-height: 80vh;
+	.sign-in-section-content {
+		position: absolute;
+		left: 50%;
+		top: 4rem;
+		transform: translate(-50%);
+		box-sizing: border-box;
+		background-color: white;
+		width: 300px;
+		padding: 2rem;
+	}
+}
