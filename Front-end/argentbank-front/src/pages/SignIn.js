@@ -6,25 +6,39 @@ const SignIn = () => {
 	return (
 		<div className="sign-in-section">
 			<section className="sign-in-section-content">
-				<FontAwesomeIcon icon={faCircleUser} />
+				<FontAwesomeIcon icon={faCircleUser} className="sign-in-section-icon" />
 				<h1 className="sign-in-section-content-title">Sign In</h1>
 				<form>
 					<div className="sign-in-section-user-and-mdp">
-						<label className="wait" htmlFor="username">
+						<label
+							className="sign-in-section-user-and-mdp-label"
+							htmlFor="username"
+						>
 							Username
 						</label>
-						<input type="text" id="username" className="wait" />
+						<input
+							type="text"
+							id="username"
+							className="sign-in-section-user-and-mdp-input"
+						/>
 					</div>
 					<div className="sign-in-section-user-and-mdp">
-						<label className="wait" htmlFor="password">
+						<label
+							className="sign-in-section-user-and-mdp-label"
+							htmlFor="password"
+						>
 							Password
 						</label>
-						<input type="password" id="password" className="wait" />
+						<input
+							type="password"
+							id="password"
+							className="sign-in-section-user-and-mdp-input"
+						/>
 					</div>
-					<div>
+					<div className="sign-in-section-remember-me">
 						<input type="checkbox" id="remember-me" />
 						<label
-							className="sign-in-section-remember-me"
+							className="sign-in-section-remember-me-label"
 							htmlFor="remember-me"
 						>
 							Remember me

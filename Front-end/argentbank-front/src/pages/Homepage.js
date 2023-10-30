@@ -4,10 +4,11 @@ import chatIcon from "../assets/icon-chat.png";
 import moneyIcon from "../assets/icon-money.png";
 import securityIcon from "../assets/icon-security.png";
 import bannerImg from "../assets/bank-tree.webp";
+import "../styles/Sass/Homepage.scss";
 
 const Homepage = () => {
 	return (
-		<>
+		<div className="main-section">
 			<Banner
 				bannerImg={bannerImg}
 				subtitleA="No fees."
@@ -35,7 +36,7 @@ const Homepage = () => {
 					featureDescription="We use top of the line encryption to make sure your data and money is always safe."
 				/>
 			</section>
-		</>
+		</div>
 	);
 };
 

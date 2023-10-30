@@ -6,6 +6,7 @@ import {
 import GlobalLayout from "../layout/GlobalLayout";
 import Homepage from "../pages/Homepage";
 import SignIn from "../pages/SignIn";
+import ErrorPage from "../pages/Errorpage";
 
 function Routes() {
 	const routes = [
@@ -28,6 +29,10 @@ function Routes() {
 				{
 					path: "signin",
 					element: <SignIn />,
+				},
+				{
+					path: "*",
+					element: <ErrorPage />,
 				},
 			],
 		},

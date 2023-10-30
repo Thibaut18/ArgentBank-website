@@ -1,0 +1,10 @@
+@import "./Breakpoints.scss";
+
+.main-section {
+	min-height: 80vh;
+	@include breakpoint(bigscreen) {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+	}
+}

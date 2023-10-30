@@ -13,4 +13,37 @@
 		width: 300px;
 		padding: 2rem;
 	}
+	.sign-in-section-icon {
+		font-size: 5rem;
+	}
+	.sign-in-section-btn {
+		display: block;
+		width: 100%;
+		padding: 8px;
+		font-size: 1.1rem;
+		font-weight: bold;
+		margin-top: 1rem;
+		border-color: #00bc77;
+		background-color: #00bc77;
+		color: #fff;
+	}
+	.sign-in-section-user-and-mdp {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		margin-bottom: 1rem;
+		.sign-in-section-user-and-mdp-label {
+			font-weight: bold;
+		}
+		.sign-in-section-user-and-mdp-input {
+			padding: 5px;
+			font-size: 1.2rem;
+		}
+	}
+	.sign-in-section-remember-me {
+		display: flex;
+		.sign-in-section-remember-me-label {
+			margin-left: 0.25rem;
+		}
+	}
 }

@@ -1,9 +1,14 @@
+@import "./Breakpoints.scss";
+
 .banner {
 	background-position: 0 -50px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 300px;
 	position: relative;
+	@include breakpoint(bigscreen) {
+		height: 410px;
+	}
 	.banner-img {
 		object-fit: cover;
 		width: 100%;
@@ -18,14 +23,25 @@
 		padding: 2rem;
 		text-align: left;
 		margin: 0 auto;
+		@include breakpoint(bigscreen) {
+			height: 160px;
+			width: 300px;
+			top: 4rem;
+		}
 		.banner-subtitles-abc {
 			font-weight: bold;
 			font-size: 1rem;
 			margin: 0;
+			@include breakpoint(bigscreen) {
+				font-size: 1.5rem;
+			}
 		}
 		.banner-txt {
 			margin-bottom: 0;
 			font-size: 0.9rem;
+			@include breakpoint(bigscreen) {
+				font-size: 1.2rem;
+			}
 		}
 	}
 }

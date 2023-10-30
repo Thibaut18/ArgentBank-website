@@ -1,0 +1,33 @@
+$breakpoints: (
+	bigscreen: (
+		min: 2000px,
+		max: 3000px,
+	),
+	mobile: (
+		max: 767.9px,
+	),
+);
+
+@mixin breakpoint($break) {
+	@if map-has-key($breakpoints, $break) {
+		$breakpoint-values: map-get($breakpoints, $break);
+		$min-value: map-get($breakpoint-values, min);
+		$max-value: map-get($breakpoint-values, max);
+
+		@if $min-value and $max-value {
+			@media (min-width: $min-value) and (max-width: $max-value) {
+				@content;
+			}
+		} @else if $min-value {
+			@media (min-width: $min-value) {
+				@content;
+			}
+		} @else if $max-value {
+			@media (max-width: $max-value) {
+				@content;
+			}
+		}
+	} @else {
+		@warn "Le breakpoint `#{$break}` n'existe pas dans la map. Choisissez parmi #{map-keys($breakpoints)}.";
+	}
+}
