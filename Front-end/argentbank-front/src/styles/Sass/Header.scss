@@ -24,6 +24,24 @@
 		width: 1px !important;
 		white-space: nowrap !important; /* 3 */
 	}
+	.header-nav-signed-user {
+		.header-nav-signed-user-name-and-icon {
+			font-weight: bold;
+			color: #2c3e50;
+			text-decoration: none;
+			margin-right: 0.5rem;
+		}
+		.header-nav-sign-out {
+			font-weight: bold;
+			color: #2c3e50;
+			text-decoration: none;
+			margin-right: 0.5rem;
+		}
+		.header-nav-icon {
+			font-size: 1.1rem;
+			margin-right: 0.1rem;
+		}
+	}
 	.header-nav {
 		.header-nav-sign {
 			font-weight: bold;
@@ -32,6 +50,9 @@
 			margin-right: 0.5rem;
 			&:hover {
 				text-decoration: underline;
+			}
+			.header-nav-icon {
+				margin-right: 0.5rem;
 			}
 		}
 	}

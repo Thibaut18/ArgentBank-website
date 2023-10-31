@@ -1,0 +1,22 @@
+.user {
+	min-height: 80vh;
+	background-color: #12002b;
+	padding-top: 1.5rem;
+	.user-section {
+		color: #fff;
+		margin-bottom: 2rem;
+		.user-section-welcome {
+			display: block;
+			font-size: 2em;
+			margin: 0;
+			font-weight: bold;
+			top: 3rem;
+		}
+		.user-section-full-name {
+			display: block;
+			font-size: 2em;
+			margin: 0;
+			font-weight: bold;
+		}
+	}
+}

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 // react
 import { useEffect } from "react";
+import "../styles/Sass/User.scss";
 
 const User = () => {
 	const userProfile = useSelector((state) => state.user);
@@ -30,19 +31,19 @@ const User = () => {
 				</p>
 			</section>
 			<TransactionItem
-				accountName="Argent Bank Checking (x8349)"
-				balanceAmount={2082.79}
-				balanceStatus="Available Balance"
+				title="Argent Bank Checking (x8349)"
+				amount={2082.79}
+				amountDescription="Available Balance"
 			/>
 			<TransactionItem
-				accountName="Argent Bank Savings (x6712)"
-				balanceAmount={10928.42}
-				balanceStatus="Available Balance"
+				title="Argent Bank Savings (x6712)"
+				amount={10928.42}
+				amountDescription="Available Balance"
 			/>
 			<TransactionItem
-				accountName="Argent Bank Checking (x8349)"
-				balanceAmount={184.3}
-				balanceStatus="Current Balance
+				title="Argent Bank Checking (x8349)"
+				amount={184.3}
+				amountDescription="Current Balance
         "
 			/>
 		</div>

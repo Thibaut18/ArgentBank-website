@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+import "../styles/Sass/TransactionItem.scss";
 
-const TransactionItem = ({ accountName, balanceAmount, balanceStatus }) => {
-	const formattedNumber = balanceAmount.toLocaleString("en-US", {
+const TransactionItem = ({ title, amount, amountDescription }) => {
+	const formattedNumber = amount.toLocaleString("en-US", {
 		style: "currency",
 		currency: "USD",
 		minimumFractionDigits: 2,
@@ -9,24 +10,26 @@ const TransactionItem = ({ accountName, balanceAmount, balanceStatus }) => {
 
 	return (
 		<section className="transaction-item-section">
-			<div className="transaction-item-section-name-amount-status">
-				<div>
-					<h3 className="transaction-item-name">{accountName}</h3>
-					<p className="transaction-item-amount">{formattedNumber}</p>
-					<p className="transaction-item-status">{balanceStatus}</p>
-				</div>
-				<div>
-					<button className="transaction-item-btn">View transactions</button>
-				</div>
+			<div className="transaction-item-section-title-amount-amountDescription">
+				<h3 className="transaction-item-section-title">{title}</h3>
+				<p className="transaction-item-section-amount">{formattedNumber}</p>
+				<p className="transaction-item-section-amountDescription">
+					{amountDescription}
+				</p>
+			</div>
+			<div className="transaction-item-section-btn-div">
+				<button className="transaction-item-section-btn">
+					View transactions
+				</button>
 			</div>
 		</section>
 	);
 };
 
 TransactionItem.propTypes = {
-	accountName: PropTypes.string.isRequired,
-	balanceAmount: PropTypes.number.isRequired,
-	balanceStatus: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
+	amountDescription: PropTypes.string.isRequired,
 };
 
 export default TransactionItem;
