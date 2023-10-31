@@ -6,6 +6,7 @@ import {
 import GlobalLayout from "../layout/GlobalLayout";
 import Homepage from "../pages/Homepage";
 import SignIn from "../pages/SignIn";
+import User from "../pages/User";
 import ErrorPage from "../pages/Errorpage";
 
 function Routes() {
@@ -29,6 +30,10 @@ function Routes() {
 				{
 					path: "signin",
 					element: <SignIn />,
+				},
+				{
+					path: "user",
+					element: <User />,
 				},
 				{
 					path: "*",

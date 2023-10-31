@@ -20,7 +20,7 @@ const SignIn = () => {
 	const token = useSelector((state) => state.auth.isLoggedIn);
 	useEffect(() => {
 		if (token) {
-			navigate("/users");
+			navigate("/user");
 		}
 	}, [token, navigate]);
 
@@ -33,7 +33,7 @@ const SignIn = () => {
 				const receivedToken = data.body.token;
 				setErrorMessage("");
 				dispatch(setLoggedIn(receivedToken));
-				navigate("/users");
+				navigate("/user");
 			})
 			.catch((error) => {
 				setShakingAnimation(true);

@@ -3,14 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const auth = createSlice({
 	name: "auth",
 	initialState: {
-		isLoggedIn: "",
+		isLoggedIn: false, // préférable d'utiliser un booléen ici
+		token: null, // Ajout d'un champ pour le token
 	},
 	reducers: {
 		setLoggedIn: (state, action) => {
-			state.isLoggedIn = action.payload;
+			state.isLoggedIn = true;
+			state.token = action.payload; // Stockage du token
 		},
 		setLoggedOut: (state) => {
-			state.isLoggedIn = "";
+			state.isLoggedIn = false;
+			state.token = null; // Effacement du token
 		},
 	},
 });
