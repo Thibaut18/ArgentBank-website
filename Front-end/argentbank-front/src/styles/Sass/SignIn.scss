@@ -12,6 +12,9 @@
 		background-color: white;
 		width: 300px;
 		padding: 2rem;
+		&.errorShaking {
+			animation: errorShaking 0.6s;
+		}
 	}
 	.sign-in-section-icon {
 		font-size: 5rem;
@@ -38,6 +41,10 @@
 		.sign-in-section-user-and-mdp-input {
 			padding: 5px;
 			font-size: 1.2rem;
+			&.error-input {
+				border: 1px solid red;
+				box-shadow: 0 0 5px red;
+			}
 		}
 	}
 	.sign-in-section-remember-me {
@@ -45,5 +52,21 @@
 		.sign-in-section-remember-me-label {
 			margin-left: 0.25rem;
 		}
+	}
+}
+
+@keyframes errorShaking {
+	0%,
+	50%,
+	100% {
+		transform: translateX(-50%) translateX(0);
+	}
+	10%,
+	30% {
+		transform: translateX(-50%) translateX(-10px);
+	}
+	20%,
+	40% {
+		transform: translateX(-50%) translateX(10px);
 	}
 }
