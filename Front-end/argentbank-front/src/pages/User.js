@@ -1,11 +1,7 @@
-// component
 import TransactionItem from "../components/TransactionItem";
-// router
+import EditUserName from "../components/EditUserName";
 import { useNavigate } from "react-router-dom";
-
-// redux
 import { useSelector } from "react-redux";
-// react
 import { useEffect } from "react";
 import "../styles/Sass/User.scss";
 
@@ -29,6 +25,7 @@ const User = () => {
 						? `${userProfile.firstName} ${userProfile.lastName} !`
 						: "Loading..."}
 				</p>
+				<EditUserName />
 			</section>
 			<TransactionItem
 				title="Argent Bank Checking (x8349)"
