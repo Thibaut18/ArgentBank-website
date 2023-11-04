@@ -33,12 +33,11 @@ paths:
           required: false
           type: integer
           default: 10
-        - name: authorisation
+        - name: Authorization
           in: header
           description: Bearer token jwt
           required: true
           type: string
-          default: 10
       responses:
         200:
           description: A list of transactions
@@ -67,6 +66,11 @@ paths:
           required: true
           schema:
             $ref: "#/definitions/TransactionInput"
+        - name: Authorization
+          in: header
+          description: Bearer token jwt
+          required: true
+          type: string
       responses:
         201:
           description: Transaction successfully added
@@ -94,6 +98,11 @@ paths:
           required: true
           type: string
           description: The ID of the transaction to retrieve
+        - name: Authorization
+          in: header
+          description: Bearer token jwt
+          required: true
+          type: string
       responses:
         200:
           description: Transaction details retrieved successfully
@@ -127,6 +136,11 @@ paths:
           required: true
           schema:
             $ref: "#/definitions/TransactionInput"
+        - name: Authorization
+          in: header
+          description: Bearer token jwt
+          required: true
+          type: string
       responses:
         200:
           description: Transaction updated successfully
