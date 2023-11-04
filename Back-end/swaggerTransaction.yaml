@@ -1,0 +1,216 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Transaction Management API
+basePath: /api/v1
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+
+paths:
+  /transactions:
+    get:
+      tags:
+        - Transactions
+      summary: Retrieve all transactions for the current month
+      operationId: getAllTransactions
+      security:
+        - Bearer: []
+      description: Returns a paginated list of all transactions made by the user for the current month.
+      parameters:
+        - name: page
+          in: query
+          description: Page number for pagination
+          required: false
+          type: integer
+          default: 1
+        - name: pageSize
+          in: query
+          description: Number of transactions per page
+          required: false
+          type: integer
+          default: 10
+        - name: authorisation
+          in: header
+          description: Bearer token jwt
+          required: true
+          type: string
+          default: 10
+      responses:
+        200:
+          description: A list of transactions
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Transaction"
+        401:
+          description: Unauthorized - Invalid or expired token
+        403:
+          description: Forbidden - The client does not have access rights to the content
+        500:
+          description: Internal Server Error
+    post:
+      tags:
+        - Transactions
+      summary: Add a new transaction
+      operationId: addTransaction
+      security:
+        - Bearer: []
+      description: Adds a new transaction to the user's transaction list.
+      parameters:
+        - in: body
+          name: transaction
+          description: Object representing the new transaction
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionInput"
+      responses:
+        201:
+          description: Transaction successfully added
+        400:
+          description: Bad Request - Data validation error
+        401:
+          description: Unauthorized - Invalid token
+        403:
+          description: Forbidden - The client does not have access rights to the action
+        500:
+          description: Internal Server Error
+
+  /transactions/{transactionId}:
+    get:
+      tags:
+        - Transactions
+      summary: Get details of a transaction
+      operationId: getTransactionById
+      security:
+        - Bearer: []
+      description: Returns the details of a specific transaction identified by transactionId.
+      parameters:
+        - name: transactionId
+          in: path
+          required: true
+          type: string
+          description: The ID of the transaction to retrieve
+      responses:
+        200:
+          description: Transaction details retrieved successfully
+          schema:
+            $ref: "#/definitions/Transaction"
+        401:
+          description: Unauthorized - Invalid token
+        403:
+          description: Forbidden - The client does not have access rights to the content
+        404:
+          description: Not Found - The transaction with the given ID was not found
+        500:
+          description: Internal Server Error
+    put:
+      tags:
+        - Transactions
+      summary: Update information of a transaction
+      operationId: updateTransaction
+      security:
+        - Bearer: []
+      description: Updates the information of a specific transaction identified by transactionId.
+      parameters:
+        - name: transactionId
+          in: path
+          required: true
+          type: string
+          description: The ID of the transaction to update
+        - in: body
+          name: transaction
+          description: Object representing the updated transaction information
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionInput"
+      responses:
+        200:
+          description: Transaction updated successfully
+        400:
+          description: Bad Request - Data validation error
+        401:
+          description: Unauthorized - Invalid token
+        403:
+          description: Forbidden - The client does not have access rights to the action
+        404:
+          description: Not Found - The transaction with the given ID was not found
+        500:
+          description: Internal Server Error
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    in: header
+    name: Authorization
+
+definitions:
+  Transaction:
+    type: object
+    required:
+      - id
+      - date
+      - amount
+      - description
+      - balance
+      - transactionType
+    properties:
+      id:
+        type: string
+        description: Unique identifier for the transaction
+      date:
+        type: string
+        format: date-time
+        description: Date and time of the transaction
+      amount:
+        type: number
+        format: float
+        description: Amount of the transaction
+      description:
+        type: string
+        description: A brief description of the transaction
+      balance:
+        type: number
+        format: float
+        description: Balance after the transaction
+      transactionType:
+        type: string
+        description: Type of the transaction (e.g., deposit, withdrawal)
+      category:
+        type: string
+        description: Category of the transaction
+      note:
+        type: string
+        description: Additional note for the transaction
+
+  TransactionInput:
+    type: object
+    required:
+      - date
+      - amount
+      - description
+      - transactionType
+    properties:
+      date:
+        type: string
+        format: date-time
+        description: Date and time of the transaction
+      amount:
+        type: number
+        format: float
+        description: Amount of the transaction
+      description:
+        type: string
+        description: A brief description of the transaction
+      transactionType:
+        type: string
+        description: Type of the transaction (e.g., deposit, withdrawal)
+      category:
+        type: string
+        description: Optional category of the transaction
+      note:
+        type: string
+        description: Optional additional note for the transaction

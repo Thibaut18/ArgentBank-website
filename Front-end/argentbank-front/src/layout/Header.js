@@ -6,7 +6,7 @@ import { faCircleUser, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoggedOut } from "../features/auth/authSlice";
-import { setUserProfile } from "../features/auth/userProfileSlice";
+import { setUserProfile } from "../features/userProfile/userProfileSlice";
 import { usePostProfileMutation } from "../features/api/apiSlice";
 
 function Header() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserProfile } from "../features/auth/userProfileSlice";
+import { setUserProfile } from "../features/userProfile/userProfileSlice";
 import {
 	usePutNewUserNameMutation,
 	usePostProfileMutation,
@@ -73,18 +73,20 @@ const EditUserName = () => {
 							id: "firstName",
 							label: "First Name",
 							value: userProfile?.firstName,
+							disabled: true,
 						},
 						{
 							id: "lastName",
 							label: "Last Name",
 							value: userProfile?.lastName,
+							disabled: true,
 						},
 						{
 							id: "userName",
 							label: "Username",
 							value: newUserName,
 							onChange: handleChange,
-							readOnly: false,
+							disabled: false,
 							required: true,
 						},
 					].map((field) => (
@@ -98,7 +100,7 @@ const EditUserName = () => {
 								className="user-edit-form-input"
 								value={field.value}
 								onChange={field.onChange}
-								readOnly={field.readOnly || false}
+								disabled={field.disabled || false}
 								required={field.required || false}
 							/>
 						</div>

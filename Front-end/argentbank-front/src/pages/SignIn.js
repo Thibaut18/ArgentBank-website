@@ -29,7 +29,6 @@ const SignIn = () => {
 		getToken({ email, password })
 			.unwrap()
 			.then((data) => {
-				console.log("Received data:", data);
 				const receivedToken = data.body.token;
 				setErrorMessage("");
 				dispatch(setLoggedIn(receivedToken));
