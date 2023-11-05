@@ -6,6 +6,7 @@ const Banner = ({ bannerImg, subtitleA, subtitleB, subtitleC, bannerTxt }) => {
 		<div className="banner">
 			<img src={bannerImg} alt="banner" className="banner-img" />
 			<section className="banner-titles-and-txt">
+				<h2 className="sr-only">Promoted Content</h2>
 				<p className="banner-subtitles-abc">{subtitleA}</p>
 				<p className="banner-subtitles-abc">{subtitleB}</p>
 				<p className="banner-subtitles-abc">{subtitleC}</p>

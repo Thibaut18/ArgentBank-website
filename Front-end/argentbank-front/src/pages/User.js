@@ -27,6 +27,7 @@ const User = () => {
 				</p>
 				<EditUserName />
 			</section>
+			<h2 className="sr-only">Accounts</h2>
 			<TransactionItem
 				title="Argent Bank Checking (x8349)"
 				amount={2082.79}

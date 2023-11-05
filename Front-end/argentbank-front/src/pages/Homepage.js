@@ -17,6 +17,7 @@ const Homepage = () => {
 				bannerTxt="Open a savings account with Argent Bank today!"
 			/>
 			<section className="feature-items">
+				<h2 className="sr-only">Features</h2>
 				<FeatureItem
 					featureIcon={chatIcon}
 					featureAlt="chat-icon"

@@ -33,7 +33,7 @@ function Header() {
 	};
 
 	return (
-		<div className="header">
+		<header className="header">
 			<NavLink to="/homepage">
 				<img src={logo} alt="Logo ArgentBank" className="header-logo" />
 			</NavLink>
@@ -61,7 +61,7 @@ function Header() {
 					</NavLink>
 				</nav>
 			)}
-		</div>
+		</header>
 	);
 }
 
