@@ -65,7 +65,7 @@ paths:
           description: Object representing the new transaction
           required: true
           schema:
-            $ref: "#/definitions/TransactionInput"
+            $ref: "#/definitions/Transaction"
         - name: Authorization
           in: header
           description: Bearer token jwt
@@ -116,7 +116,7 @@ paths:
           description: Not Found - The transaction with the given ID was not found
         500:
           description: Internal Server Error
-    put:
+    patch:
       tags:
         - Transactions
       summary: Update information of a transaction
@@ -135,7 +135,7 @@ paths:
           description: Object representing the updated transaction information
           required: true
           schema:
-            $ref: "#/definitions/TransactionInput"
+            $ref: "#/definitions/TransactionUpdate"
         - name: Authorization
           in: header
           description: Bearer token jwt
@@ -162,69 +162,40 @@ securityDefinitions:
     name: Authorization
 
 definitions:
-  Transaction:
+  TransactionUpdate:
     type: object
-    required:
-      - id
-      - date
-      - amount
-      - description
-      - balance
-      - transactionType
     properties:
-      id:
-        type: string
-        description: Unique identifier for the transaction
-      date:
-        type: string
-        format: date-time
-        description: Date and time of the transaction
-      amount:
-        type: number
-        format: float
-        description: Amount of the transaction
-      description:
-        type: string
-        description: A brief description of the transaction
-      balance:
-        type: number
-        format: float
-        description: Balance after the transaction
-      transactionType:
-        type: string
-        description: Type of the transaction (e.g., deposit, withdrawal)
       category:
         type: string
         description: Category of the transaction
       note:
         type: string
         description: Additional note for the transaction
-
-  TransactionInput:
+  Transaction:
     type: object
-    required:
-      - date
-      - amount
-      - description
-      - transactionType
     properties:
+      id:
+        type: string
+        description: Transaction ID
       date:
         type: string
         format: date-time
-        description: Date and time of the transaction
+        description: Transaction date
       amount:
         type: number
-        format: float
-        description: Amount of the transaction
+        description: Transaction amount
       description:
         type: string
-        description: A brief description of the transaction
+        description: Description
+      balance:
+        type: number
+        description: Balance after the transaction
       transactionType:
         type: string
-        description: Type of the transaction (e.g., deposit, withdrawal)
+        description: Type of the transaction
       category:
         type: string
-        description: Optional category of the transaction
+        description: Category of the transaction
       note:
         type: string
-        description: Optional additional note for the transaction
+        description: Additional note for the transaction
